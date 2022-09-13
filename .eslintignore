@@ -1,0 +1,6 @@
+*.*
+!*.ts
+/coverage/
+node_modules
+dist
+routes.ts

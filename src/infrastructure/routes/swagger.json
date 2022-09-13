@@ -1,0 +1,154 @@
+{
+  "components": {
+    "examples": {},
+    "headers": {},
+    "parameters": {},
+    "requestBodies": {},
+    "responses": {},
+    "schemas": {
+      "HealthStatus": {
+        "properties": {
+          "env": {
+            "type": "string",
+            "enum": [
+              "local",
+              "production",
+              "development",
+              "staging"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "default": "ok"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "jwt": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "JWT Authorization header using the Bearer scheme. \n                      Enter your JWT token in the text input below. You can omit the 'Bearer ' prefix ;)"
+      }
+    }
+  },
+  "info": {
+    "title": "skeleton-base",
+    "version": "2.0.0",
+    "description": "Base skeleton for next project in node",
+    "contact": {}
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/health/status": {
+      "get": {
+        "operationId": "CheckStatus",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthStatus"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "health status"
+        ],
+        "security": [
+          {
+            "none": []
+          }
+        ],
+        "parameters": []
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "default": {
+    "components": {
+      "examples": {},
+      "headers": {},
+      "parameters": {},
+      "requestBodies": {},
+      "responses": {},
+      "schemas": {
+        "HealthStatus": {
+          "properties": {
+            "env": {
+              "type": "string",
+              "enum": [
+                "local",
+                "production",
+                "development",
+                "staging"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "default": "ok"
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "securitySchemes": {
+        "jwt": {
+          "type": "http",
+          "scheme": "bearer",
+          "description": "JWT Authorization header using the Bearer scheme. \n                      Enter your JWT token in the text input below. You can omit the 'Bearer ' prefix ;)"
+        }
+      }
+    },
+    "info": {
+      "title": "skeleton-base",
+      "version": "2.0.0",
+      "description": "Base skeleton for next project in node",
+      "contact": {}
+    },
+    "openapi": "3.0.0",
+    "paths": {
+      "/health/status": {
+        "get": {
+          "operationId": "CheckStatus",
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HealthStatus"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "health status"
+          ],
+          "security": [
+            {
+              "none": []
+            }
+          ],
+          "parameters": []
+        }
+      }
+    },
+    "servers": [
+      {
+        "url": "/"
+      }
+    ]
+  }
+}

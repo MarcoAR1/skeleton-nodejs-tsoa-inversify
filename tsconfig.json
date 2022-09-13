@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "types": ["reflect-metadata", "jest", "node"],
+    "esModuleInterop": true,
+    "target": "ES6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "rootDir": ".",
+    "strict": true,
+    "resolveJsonModule": true,
+    "strictFunctionTypes": true,
+    "sourceMap": false,
+    "noUnusedLocals": true,
+    "outDir": "./dist",
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/**.ts"],
+  "exclude": ["node_modules", "dist", "coverage", "src/tests", "src/infrastructure/routes/routes.ts"]
+}

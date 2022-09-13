@@ -1,0 +1,15 @@
+{
+  "entryFile": "src/infrastructure/start.ts",
+  "noImplicitAdditionalProperties": "silently-remove-extras",
+  "controllerPathGlobs": ["src/**/*Controller.ts"],
+  "spec": {
+    "outputDirectory": "src/infrastructure/routes",
+    "specVersion": 3
+  },
+  "routes": {
+    "routesDir": "src/infrastructure/routes",
+    "iocModule": "src/infrastructure/ioc/container",
+    "authenticationModule": "src/infrastructure/middlewares/Authorization.ts",
+    "middleware": "express"
+  }
+}

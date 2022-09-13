@@ -1,0 +1,9 @@
+*.*
+!*.json
+!*.md
+!*.ts
+!*.yml
+!*.js
+/coverage/
+node_modules
+dist
