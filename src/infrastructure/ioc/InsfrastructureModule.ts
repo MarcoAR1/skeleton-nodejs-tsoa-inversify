@@ -1,12 +1,12 @@
-import { Container } from 'inversify'
+import { container } from 'tsyringe'
 import { IHttpClientBase, HttpClientBase } from './httpClients/httpClientBase'
 import { ILogger, Logger } from './logger/Logger'
 import { ModuleContainerBase } from './moduleContainerBase'
 import { TYPES } from './Type'
 
-export class InsfrastructureModule implements ModuleContainerBase {
-  run(container: Container): void {
-    container.bind<IHttpClientBase>(TYPES.HttpClientCore).to(HttpClientBase).inSingletonScope()
-    container.bind<ILogger>(TYPES.ILogger).to(Logger).inSingletonScope()
+export class InfrastructureModule implements ModuleContainerBase {
+  run() {
+    container.registerSingleton<IHttpClientBase>(TYPES.HttpClientCore, HttpClientBase)
+    container.registerSingleton<ILogger>(TYPES.ILogger, Logger)
   }
 }

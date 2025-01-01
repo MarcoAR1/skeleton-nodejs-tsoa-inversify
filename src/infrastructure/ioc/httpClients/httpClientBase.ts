@@ -1,6 +1,6 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { injectable } from 'inversify'
 import { axiosInstance } from './axiosInstance'
+import { injectable } from 'tsyringe'
 
 export interface IHttpClientBase {
   get<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>>
@@ -8,7 +8,6 @@ export interface IHttpClientBase {
   put<Data, T>(url: string, data?: Data, config?: AxiosRequestConfig): Promise<AxiosResponse<T>>
   delete<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>>
 }
-
 @injectable()
 export class HttpClientBase implements IHttpClientBase {
   get<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {

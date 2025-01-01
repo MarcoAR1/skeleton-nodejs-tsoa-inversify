@@ -1,10 +1,10 @@
-import { Container } from 'inversify'
-import { interfaces, TYPE } from 'inversify-socket-utils'
 import { ModuleContainerBase } from '../../../infrastructure/ioc/moduleContainerBase'
-import { ChatGetwayController } from '../entrypoint/chat.geteway'
+import '../entrypoint/ChatController'
+import '../entrypoint/chat.gateway'
 
 export class ChatModule implements ModuleContainerBase {
-  run(contianer: Container) {
-    contianer.bind<interfaces.Controller>(TYPE.Controller).to(ChatGetwayController)
+  run() {
+    // Register any chat-specific dependencies here if needed
+    return
   }
 }

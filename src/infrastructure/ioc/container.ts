@@ -1,13 +1,15 @@
 import 'reflect-metadata'
-import { Container, decorate, injectable, inject } from 'inversify'
-import { InsfrastructureModule } from './InsfrastructureModule'
 import { HealthModule } from '../../contexts/health/infrastructure/HealthModule'
-import { buildProviderModule } from 'inversify-binding-decorators'
-import { Controller } from 'tsoa'
+import { ChatModule } from '../../contexts/chat/infrastructure/ChatModule'
+import { IocContainer } from '@tsoa/runtime'
+import { container } from 'tsyringe'
+import { InfrastructureModule } from './InsfrastructureModule'
 
-const iocContainer = new Container()
-const modules = [InsfrastructureModule, HealthModule]
-decorate(injectable(), Controller)
-modules.forEach(module => new module().run(iocContainer))
-iocContainer.load(buildProviderModule())
-export { inject, iocContainer }
+const modules = [InfrastructureModule, HealthModule, ChatModule]
+
+modules.forEach(module => new module().run())
+export const iocContainer: IocContainer = {
+  get: <T>(controller: { prototype: T }): T => {
+    return container.resolve<T>(controller as never)
+  }
+}

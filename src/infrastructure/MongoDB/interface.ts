@@ -1,12 +1,12 @@
-import mongoose, { CallbackError, Document } from 'mongoose'
+import { FilterQuery, UpdateQuery } from 'mongoose'
 
 export interface IRead<T> {
-  retrieve: (callback: (error: CallbackError, result: Document) => void) => void
-  findById: (id: string, callback: (error: CallbackError, result: T) => void) => void
+  retrieve: (filter: FilterQuery<T>) => void
+  findById: (id: string) => void
 }
 
 export interface IWrite<T> {
-  create: (item: T, callback: (error: CallbackError, result: Document) => void) => void
-  update: (_id: mongoose.Types.ObjectId, item: T, callback: (error: CallbackError, result: Document) => void) => void
-  delete: (_id: string, callback: (error: CallbackError, result: Document | null) => void) => void
+  create: (item: T) => void
+  update: (_id: string, item: UpdateQuery<T>) => void
+  delete: (_id: string) => void
 }

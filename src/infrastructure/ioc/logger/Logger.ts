@@ -2,7 +2,7 @@
 import 'reflect-metadata'
 import winston from 'winston'
 import httpContext from 'express-http-context'
-import { injectable } from 'inversify'
+import { injectable } from 'tsyringe'
 
 const enumerateErrorFormat = winston.format(info => {
   const transformed: winston.Logform.TransformableInfo = {

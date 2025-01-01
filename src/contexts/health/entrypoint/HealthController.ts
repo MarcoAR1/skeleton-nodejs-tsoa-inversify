@@ -1,8 +1,9 @@
 import { Controller, Route, Get, Tags, Security } from 'tsoa'
-import { provideSingleton } from '../../../infrastructure/ioc/provideSingleton'
 import { HealthStatus } from '../domain/HealthStatus'
+import { injectable, singleton } from 'tsyringe'
 
-@provideSingleton(HealthController)
+@injectable()
+@singleton()
 @Tags('health status')
 @Route('/health')
 export class HealthController extends Controller {
@@ -10,9 +11,14 @@ export class HealthController extends Controller {
     super()
   }
 
-  @Security('none')
   @Get('/status')
   public async checkStatus() {
+    return new HealthStatus()
+  }
+
+  @Security('api_key')
+  @Get('/health')
+  public async checkHealth() {
     return new HealthStatus()
   }
 }
